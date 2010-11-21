@@ -7,6 +7,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Example:
     # (r'^johnjot/', include('johnjot.foo.urls')),
-
+    (r'^api/', include('core.api.urls')),
     (r'^admin/', include(admin.site.urls)),
 )
