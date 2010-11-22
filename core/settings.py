@@ -1,5 +1,6 @@
 # Django settings for johnjot project.
 
+import socket
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -15,16 +16,24 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'johnjot',                      # Or path to database file if using sqlite3.
-        'USER': 'johnjot',                      # Not used with sqlite3.
-        'PASSWORD': '2yQhDWZauCUhMD6W',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+if (socket.gethostname() == 'olive'):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+            'NAME': 'johnjot',                      # Or path to database file if using sqlite3.
+            'USER': 'johnjot',                      # Not used with sqlite3.
+            'PASSWORD': '2yQhDWZauCUhMD6W',                  # Not used with sqlite3.
+            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'johnjot.db',
+        }
+    }
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
