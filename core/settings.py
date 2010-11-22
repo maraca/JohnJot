@@ -94,7 +94,7 @@ ROOT_URLCONF = 'core.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
-    os.path.join(BASE_DIR, 'piston/templates'),
+#    os.path.join(BASE_DIR, 'piston/templates'),
 )
 
 INSTALLED_APPS = (
