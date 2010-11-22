@@ -3,6 +3,9 @@
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+#OAUTH_AUTH_VIEW = "piston.authentication.oauth_auth_view"
+#OAUTH_CALLBACK_VIEW = "piston.authentication.oauth_user_auth"
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
