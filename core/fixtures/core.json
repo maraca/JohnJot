@@ -1,0 +1,167 @@
+[
+  {
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "thomas", 
+      "first_name": "", 
+      "last_name": "", 
+      "is_active": true, 
+      "is_superuser": true, 
+      "is_staff": true, 
+      "last_login": "2010-11-21 00:15:30", 
+      "groups": [], 
+      "user_permissions": [], 
+      "password": "sha1$f7f03$1fe1b3dbd363d114ac142104a68348b855c779a4", 
+      "email": "thomas.druez@gmail.com", 
+      "date_joined": "2010-11-20 18:55:08"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "maraca", 
+      "first_name": "", 
+      "last_name": "", 
+      "is_active": true, 
+      "is_superuser": false, 
+      "is_staff": false, 
+      "last_login": "2010-11-21 16:55:55", 
+      "groups": [], 
+      "user_permissions": [], 
+      "password": "sha1$344d1$f8c52c700436d32b34bd7e4d0f11db3f5cd8dccd", 
+      "email": "", 
+      "date_joined": "2010-11-20 21:25:25"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "auth.user", 
+    "fields": {
+      "username": "dachmt", 
+      "first_name": "", 
+      "last_name": "", 
+      "is_active": true, 
+      "is_superuser": false, 
+      "is_staff": false, 
+      "last_login": "2010-11-20 21:25:43", 
+      "groups": [], 
+      "user_permissions": [], 
+      "password": "sha1$9ee10$1076c92376067cea9c7bb65490cdefc2ff788362", 
+      "email": "", 
+      "date_joined": "2010-11-20 21:25:43"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "core.group", 
+    "fields": {
+      "owner": 1, 
+      "date_created": "2010-11-21 16:39:56", 
+      "last_edit": "2010-11-21 16:39:56", 
+      "name": "TheOffice", 
+      "agent": "django-admin"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "core.contact", 
+    "fields": {
+      "first_name": "", 
+      "last_name": "", 
+      "agent": "django-admin", 
+      "tag_name": "Michel", 
+      "groups": [], 
+      "owner": 1, 
+      "date_created": "2010-11-20 20:57:39", 
+      "last_edit": "2010-11-20 20:57:39", 
+      "email": "michel@michel.com"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "core.contact", 
+    "fields": {
+      "first_name": "Jim", 
+      "last_name": "Halpert", 
+      "agent": "django-admin", 
+      "tag_name": "Jimbo", 
+      "groups": [
+        1
+      ], 
+      "owner": 1, 
+      "date_created": "2010-11-20 21:06:46", 
+      "last_edit": "2010-11-20 21:06:46", 
+      "email": ""
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "core.contact", 
+    "fields": {
+      "first_name": "", 
+      "last_name": "", 
+      "agent": "django-admin", 
+      "tag_name": "Scott", 
+      "groups": [
+        1
+      ], 
+      "owner": 1, 
+      "date_created": "2010-11-21 16:41:07", 
+      "last_edit": "2010-11-21 16:41:07", 
+      "email": ""
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "core.jot", 
+    "fields": {
+      "content": "Faite gaffe a ce type, danger!", 
+      "date_created": "2010-11-21 16:41:34", 
+      "last_edit": "2010-11-21 16:41:34", 
+      "agent": "django-admin"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "core.jot", 
+    "fields": {
+      "content": "Ambiance sympa, regarder plus souvent", 
+      "date_created": "2010-11-21 16:42:03", 
+      "last_edit": "2010-11-21 16:42:03", 
+      "agent": "django-admin"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "core.jot", 
+    "fields": {
+      "content": "Note to self: acheter une caisse de miller", 
+      "date_created": "2010-11-21 16:42:30", 
+      "last_edit": "2010-11-21 16:42:30", 
+      "agent": "django-admin"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "core.jotdaily", 
+    "fields": {
+      "owner": 1
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "core.jotcontact", 
+    "fields": {
+      "contact": 1
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "core.jotgroup", 
+    "fields": {
+      "group": 1
+    }
+  }
+]
