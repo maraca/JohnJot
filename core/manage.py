@@ -1,15 +1,13 @@
 #!/usr/bin/env python
 
-
 import sys
 import os
 
-
-core_path = os.path.dirname(os.path.dirname(__file__))
-sys.path.append(core_path)
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(base_dir)
 
 if 'DJANGO_SETTINGS_MODULE' not in os.environ:
-    os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+    os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings'
 
 
 from django.core.management import execute_manager

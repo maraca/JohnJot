@@ -2,10 +2,9 @@
 
 import socket
 import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-#OAUTH_AUTH_VIEW = "piston.authentication.oauth_auth_view"
-#OAUTH_CALLBACK_VIEW = "piston.authentication.oauth_user_auth"
+CORE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(CORE_DIR)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -79,7 +78,6 @@ SECRET_KEY = 'hb8z4l*lj59oy6k@b@bh2f!rir=@v&dg1#9twhy&*)qc-qrkbw'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -93,8 +91,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'core.urls'
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
-#    os.path.join(BASE_DIR, 'piston/templates'),
+    os.path.join(CORE_DIR, 'templates'),
 )
 
 INSTALLED_APPS = (
