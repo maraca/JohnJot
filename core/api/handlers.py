@@ -7,9 +7,8 @@ class ContactHandler(BaseHandler):
     model = Contact   
 
     def read(self, request, contact_id=None):
-        base = Contact.objects
-        
+        queryset = Contact.objects.filter(owner=request.user)
+                
         if contact_id:
-            return base.get(pk=contact_id)
-        else:
-            return base.all()
+            return queryset.filter(pk=contact_id)
+        return queryset
