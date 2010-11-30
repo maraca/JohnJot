@@ -1,1 +1,0 @@
-./manage.py dumpdata auth.user auth.group core --indent 2 >> fixtures/initial_data.json
