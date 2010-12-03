@@ -5,6 +5,10 @@ from django.contrib.auth.models import User
 
 
 class ModelOrigin(models.Model):
+    """
+    This is the common part for each models
+    Used to track the origin of the data
+    """
     date_created = models.DateTimeField(default=datetime.datetime.now)
     last_edit = models.DateTimeField(default=datetime.datetime.now)
     agent = models.CharField(max_length=50)
@@ -37,6 +41,9 @@ class Contact(ModelOrigin):
 
 
 class Jot(ModelOrigin):
+    """
+    Every Jot types herits from this class
+    """
     content = models.CharField(max_length=250)
     
     class Meta:
@@ -47,6 +54,9 @@ class Jot(ModelOrigin):
 
 
 class JotDaily(Jot):
+    """
+    Used to take simple notes
+    """
     owner = models.ForeignKey(User)
 
 
