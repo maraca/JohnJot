@@ -39,6 +39,9 @@ class Contact(ModelOrigin):
 class Jot(ModelOrigin):
     content = models.CharField(max_length=250)
     
+    class Meta:
+        abstract = True
+    
     def __unicode__(self):
         return self.content
 
