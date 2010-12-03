@@ -5,11 +5,10 @@ import sys
 sys.stdout = sys.stderr
 
 # Adds the current path to the PYTHON PATH
-core_dir = os.path.dirname(os.path.abspath(__file__))
-if core_dir in sys.path:
-    sys.path.append(core_dir)
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(base_dir)
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings'
 
 import django.core.handlers.wsgi
 
