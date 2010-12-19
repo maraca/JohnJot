@@ -17,7 +17,17 @@ jot_daily_handler = Resource(handler=JotDailyHandler, **ad)
 jot_contact_handler = Resource(handler=JotContactHandler, **ad)
 jot_group_handler = Resource(handler=JotGroupHandler, **ad)
 
+urlpatterns = patterns('',
+    # create, fetch, modify, delete, user account.
+    url(r'^users/(?P<username>[^/]+/)', users_handler),
+    # insert jot for a given contact
+    url(r'^users/(?P<username>[^/]+/contacts/jots/(?P<contact_id>[^/]+)/', users_handler),
+    # create, fetch, modify, delete, user account.
+    url(r'^jots/(?P<jot_id>[^/]+)/', jots_handler),
+    url(r'^/(?P<>[^/]*)/', contact_handler),
+    url(r'^/(?P<>[^/]*)/', contact_handler),
 
+"""
 urlpatterns = patterns('',
     url(r'^contact/(?P<contact_id>[^/]+)/', contact_handler),
     url(r'^contacts/', contact_handler),
@@ -30,3 +40,5 @@ urlpatterns = patterns('',
     url(r'^group_jot/(?P<group_id>[^/]+)/', jot_group_handler),
     url(r'^group_jots/', jot_group_handler),
 )
+"""
+    
