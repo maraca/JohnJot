@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from piston.handler import BaseHandler
 from core.models import Contact
 from core.models import Group
@@ -20,6 +21,15 @@ class ContactHandler(BaseHandler):
         if contact_id:
             return queryset.filter(pk=contact_id)
         return queryset
+
+class UserHandler(BaseHandler):
+    """Fetch, modify, create, delete Users account. """
+
+    allowed_methods = ('GET', 'POST', 'PUT', 'DELETE')
+
+    def create(self, request, username=None):
+        """Create new users."""
+        first_name = request.  
 
 class GroupHandler(BaseHandler):
     """
