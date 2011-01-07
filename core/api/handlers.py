@@ -1,8 +1,10 @@
 from django.contrib.auth.models import User
 from piston.handler import BaseHandler
+from piston.utils import rc
 from core.models import Contact
 from core.models import Group
 from core.models import JotDaily, JotGroup, JotContact
+import logging
 
 class ContactHandler(BaseHandler):
     """
@@ -25,11 +27,60 @@ class ContactHandler(BaseHandler):
 class UserHandler(BaseHandler):
     """Fetch, modify, create, delete Users account. """
 
-    allowed_methods = ('GET', 'POST', 'PUT', 'DELETE')
+    allowed_methods = ('GET', 'POST') #, 'PUT', 'DELETE')
 
-    def create(self, request, username=None):
+    def read(self, request, username):
+
+        user = self.user_exists(username)
+        if user is not None:
+            return user
+        else:
+            response = rc.NOT_FOUND
+            response.write('%s does\'t exist.' % username)
+            return response
+    
+    def create(self, request):
         """Create new users."""
-        first_name = request.  
+        
+        req = request.POST
+        username = req.get('username')
+        password = req.get('password')
+        email = req.get('email')
+
+        if not username:
+            response = rc.BAD_REQUEST
+            response.write('Missing Username')
+            return response
+
+        if not password:
+            response = rc.BAD_REQUEST
+            response.write('Missing Password')
+            return response
+
+        if not email:
+            response = rc.BAD_REQUEST
+            response.write('Missing Email')
+            return response
+
+        if self.user_exists(username) is not None:
+            response = rc.DUPLICATE_ENTRY
+            response.write('User already exists.')
+            return response
+        else:
+            new_user = User.objects.create_user(username, email, password)
+            response = rc.CREATED
+            response.write('User %s has been created.' % new_user.username)
+            return response
+ 
+    def user_exists(self, username):
+        """Verifies if username is taken."""
+        try:
+            user = User.objects.get(username=username)
+            return user
+        except User.DoesNotExist:
+            return None
+
+
 
 class GroupHandler(BaseHandler):
     """
