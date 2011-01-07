@@ -14,16 +14,9 @@ LOG_FILENAME = 'test.log'
 logging.basicConfig(filename=LOG_FILENAME, level=logging.DEBUG,
                     format='%(asctime)s %(lineno)d %(levelname)-8s %(message)s')
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.failUnlessEqual(1 + 1, 2)
 
-
-class ApiTestCase(TestCase):
-
+class ApiUserPostTestCase(TestCase):
+    """List of cases for Creating a User with POST"""
     def setUp(self):
         User.objects.create_user('user_test',
                                  'user@email.tld',
@@ -73,6 +66,20 @@ class ApiTestCase(TestCase):
         user_created = User.objects.get(username=data['username'])
         self.assertEqual(response.status_code, 201)
         self.assertEqual(user_created.username, data['username'] )
+
+class ApiUserGetTestCase(TestCase):
+    """List of test cases for GET User."""
+
+    def setUp(self):
+        User.objects.create_user('user_test',
+                                 'user@email.tld',
+                                 'user_password')
+    
+    def test_username_exist(self):
+        """Test to retrieve user information."""
+
+    def test_username_does_not_exist(self):
+        """Test behaviour when user doesn't exist.'"""
 
 
 class UserTestCase(TestCase):
