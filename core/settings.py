@@ -103,4 +103,5 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'core.api',
     'core',
+    'south'
 )
